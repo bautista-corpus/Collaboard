@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="css/semantic.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Canvas Colaborativo</title>
+</head>
+
+<body>
+
+    <div class="ui container" style="height: calc(100vh - 100px)">
+        <div class="ui celled grid" style="height: calc(100vh - 100px);">
+            <div class="three wide column center aligned">
+
+                <div class="mt3">
+                    <label class="mt2">Tamaño de trazo</label>
+                    <hr class="my0">
+                    <div class="ui icon buttons size-btns mt1">
+                        <button class="ui button active" title="Pequeño" onclick="setBrush({width: 5})">S</button>
+                        <button class="ui button" title="Mediano" onclick="setBrush({width: 10})">M</button>
+                        <button class="ui button" title="Grande" onclick="setBrush({width: 15})">L</button>
+                    </div>
+                </div>
+
+                <div class="mt3">
+                    <hr class="my0">
+                    <label>Color</label>
+                    
+                    <div class="mt1">
+                        <input type="color" id="brushColor" style="width: 50%; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; padding: 0;">
+                    </div>
+                </div>
+
+                <div class="mt2" id="toolbox">
+                    <hr class="my0">
+                    <label>Herramientas de dibujo</label>
+                    <hr class="my0">
+                    <div class="ui vertical buttons">
+                        <button class="ui button" id="drwToggleDrawMode" title="Mano alzada"><i class="pencil alternate icon"></i></button>
+                        <button class="ui button" id="drwEraser" title="Borrador"><i class="eraser icon"></i></button>
+                        <button class="ui button" id="drwClearCanvas" title="Borrar todo"><i class="trash alternate outline icon"></i></button>
+                        <button class="ui button" id="shapeRect" title="Rectangulo"><i class="square outline icon"></i></button>
+                        <button class="ui button" id="shapeCircle" title="Circulo"><i class="circle outline icon"></i></button>
+                        <button class="ui button" id="shapeArrow" title="Insertar texto"><i class="font icon"></i></button>
+                    </div>
+                    <hr class="my0">
+                </div>
+            </div>
+
+            <div class="nine wide column" style="height: calc(100vh - 100px);">
+                <div id="content" style="width: 100%; position: absolute; z-index: 1; top: 0; left: 0; right: 0;">
+                    <img style="width: 100%;" src="" alt="">
+                </div>
+                <div id="canvasWrapper" style="height: 100%;">
+                    <canvas id="c" style="position: relative; z-index: 9999; top: 0; bottom: 0;"></canvas>
+                </div>
+            </div>
+            <div class="four wide column" style="height: calc(100vh - 100px);">
+                <ul class="pages">
+                    <li class="chat page">
+                        <div class="chatArea">
+                            <ul class="messages"></ul>
+                        </div>
+                        <input class="inputMessage" placeholder="Escribe aquí..." />
+                    </li>
+                    <li class="login page">
+                        <div class="form">
+                            <h3 class="title">Nombre de usuario:</h3>
+                            <input class="usernameInput" type="text" maxlength="14" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/semantic.js"></script>
+    <script src="js/fabric.min.js"></script>
+    <script src="js/shapes.fabric.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+
+</html>

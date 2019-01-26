@@ -1,0 +1,16 @@
+{
+  "name": "canvas-colaborativo",
+  "version": "2.5.0",
+  "description": "Canvas colaborativo usando fabric.js y node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "author": "Jesús Bautista, Eduardo Martinez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "fabric": "^2.2.4",
+    "socket.io": "^2.1.1"
+  }
+}
